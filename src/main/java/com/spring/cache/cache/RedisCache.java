@@ -17,6 +17,7 @@ public class RedisCache implements Cache {
 
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     private final String id; // cache instance id
+
     private RedisTemplate redisTemplate;
 
     private static final long EXPIRE_TIME_IN_MINUTES = 30; // redis过期时间
@@ -120,8 +121,14 @@ public class RedisCache implements Cache {
 
     private RedisTemplate getRedisTemplate() {
         if (redisTemplate == null) {
-            redisTemplate = ApplicationContextHolder.getBean("redisTemplate");
+            try {
+                redisTemplate = ApplicationContextHolder.getBean("redisTemplate");
+            } catch (Exception e) {
+                System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx " + e.getMessage());
+                e.printStackTrace();
+            }
         }
+
         return redisTemplate;
     }
 }
