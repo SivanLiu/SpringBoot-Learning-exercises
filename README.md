@@ -1,1 +1,1 @@
-# Spring-Learing-exercises
+# Spring-Learning-exercises
