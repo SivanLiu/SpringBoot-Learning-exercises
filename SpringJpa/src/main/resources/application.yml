@@ -5,6 +5,9 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+    data:
+      classpath: data.sql
+    initialization-mode: always
 
 
   jpa:
@@ -14,4 +17,6 @@ spring:
     show-sql: true
 
   jackson:
-    serialization: true
+    serialization:
+      indent_output: true
+

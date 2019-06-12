@@ -42,9 +42,9 @@ public class DataController {
         return person;
     }
 
-    @RequestMapping("q4")
-    public Person q4(String name, String address) {
-        Person person = personRepository.withNameAndAddressNamedQuery(name, address);
+    @RequestMapping("/q4")
+    public List<Person> q4(String name, String address) {
+        List<Person> person = personRepository.withNameAndAddressNamedQuery(name, address);
         return person;
     }
 
