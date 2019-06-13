@@ -5,7 +5,7 @@ insert into person(id, name, age, address)
 values(null, 'xx', 31, '北京');
 
 insert into person(id, name, age, address) 
-values(null, '王云飞', 32, '合肥');
+values(null, '汪云飞', 32, '合肥');
 
 insert into person(id, name, age, address) 
 values(null, 'yy', 30, '上海');
