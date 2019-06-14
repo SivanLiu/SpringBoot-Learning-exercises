@@ -2,18 +2,18 @@ spring:
   batch:
     job:
       names: job1, job2
-      enabled: false
-    initializer:
-      enabled: false
-    initialize-schema: always
+      enabled: true
   datasource:
     url: jdbc:mysql://localhost:3306/mysql?serverTimezone=GMT%2B8
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-    schema:
-      - classpath:schema.sql
-    initialization-mode: ALWAYS
+  #    schema:
+  #      - classpath:scheme.sql
+  #    initialization-mode: ALWAYS
+  jpa:
+    hibernate:
+      ddl-auto: update
 
   main:
     allow-bean-definition-overriding: true

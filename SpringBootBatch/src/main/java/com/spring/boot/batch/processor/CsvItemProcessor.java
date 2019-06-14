@@ -1,4 +1,4 @@
-package com.spring.boot.batch;
+package com.spring.boot.batch.processor;
 
 import com.spring.boot.batch.domain.Person;
 import org.springframework.batch.item.validator.ValidatingItemProcessor;
@@ -11,6 +11,7 @@ public class CsvItemProcessor extends ValidatingItemProcessor<Person> {
         super.process(item);
 
         if (item.getNation().equals("汉族")) {
+            System.out.println("ggggggggggggggggggggggggggggggggggggg");
             item.setNation("01");
         } else {
             item.setNation("02");

@@ -1,9 +1,9 @@
-package com.spring.boot.batch;
+package com.spring.boot.batch.listener;
 
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;
 
-public class CsvJboListener implements JobExecutionListener {
+public class CsvJobListener implements JobExecutionListener {
     long startTime;
 
     long endTime;

@@ -4,7 +4,7 @@ import javax.validation.constraints.Size;
 
 public class Person {
 
-    @Size(max=4, min = 2)
+    @Size(max = 4, min = 2)
     private String name;
 
     private int age;
@@ -12,6 +12,17 @@ public class Person {
     private String nation;
 
     private String address;
+
+    public Person() {
+
+    }
+
+    public Person(String name, int age, String nation, String address) {
+        this.name = name;
+        this.age = age;
+        this.nation = nation;
+        this.address = address;
+    }
 
     public String getName() {
         return name;
