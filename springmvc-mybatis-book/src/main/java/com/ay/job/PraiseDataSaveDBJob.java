@@ -48,6 +48,7 @@ public class PraiseDataSaveDBJob {
             return;
         }
         for(String moodId: moods){
+            System.out.println("ggggggggggggggggggggggggg "+moodId);
             if(redisTemplate.opsForSet().members(moodId) == null){
                 continue;
             }else {

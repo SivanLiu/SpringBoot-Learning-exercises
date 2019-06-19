@@ -11,7 +11,7 @@ public class User implements Serializable {
     /**
      * 主键
      */
-    private String id;
+    private int id;
     /**
      * 用户名称
      */
@@ -21,11 +21,11 @@ public class User implements Serializable {
      */
     private String account;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

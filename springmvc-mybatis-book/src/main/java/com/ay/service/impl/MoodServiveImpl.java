@@ -45,12 +45,12 @@ public class MoodServiveImpl implements MoodService {
         MoodDTO moodDTO = new MoodDTO();
         moodDTO.setUserId(userId);
         moodDTO.setId(moodId);
-        moodProducer.sendMessage(destination, moodDTO);
+//        moodProducer.sendMessage(destination, moodDTO);
 
-//        //1.存放到hashset中
-//        redisTemplate.opsForSet().add(PRAISE_HASH_KEY , moodId);
-//        //2.存放到set中
-//        redisTemplate.opsForSet().add(moodId,userId);
+        //1.存放到hashset中
+        redisTemplate.opsForSet().add(PRAISE_HASH_KEY , moodId);
+        //2.存放到set中
+        redisTemplate.opsForSet().add(moodId,userId);
         return false;
     }
 
