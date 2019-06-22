@@ -24,7 +24,7 @@ public class MQTest extends BaseJunit4Test {
     @Test
     public void testMQ(){
         MoodDTO mood = new MoodDTO();
-        mood.setId("1");
+        mood.setId(1);
         mood.setContent("aaaa");
         moodProducer.sendMessage(destination, mood);
     }

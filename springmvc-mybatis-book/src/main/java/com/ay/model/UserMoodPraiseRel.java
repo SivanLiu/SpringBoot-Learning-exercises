@@ -12,7 +12,7 @@ public class UserMoodPraiseRel implements Serializable {
     /**
      * 主键
      */
-    private Integer id;
+    private int id;
     /**
      * 用户id
      */

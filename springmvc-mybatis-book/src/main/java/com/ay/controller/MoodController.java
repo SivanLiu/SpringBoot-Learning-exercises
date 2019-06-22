@@ -41,7 +41,7 @@ public class MoodController {
     }
 
     @GetMapping(value = "/{moodId}/praiseForRedis")
-    public String praiseForRedis(Model model, @PathVariable(value="moodId")String moodId,
+    public String praiseForRedis(Model model, @PathVariable(value="moodId")int moodId,
                                  @RequestParam(value="userId")String userId){
         //方便使用，随机生成用户id
         Random random = new Random();

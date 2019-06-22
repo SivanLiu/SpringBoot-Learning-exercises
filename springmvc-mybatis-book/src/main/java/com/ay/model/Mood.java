@@ -7,11 +7,11 @@ import java.util.Date;
  * 描述：说说
  * Created by Ay on 2017/9/16.
  */
-public class Mood implements Serializable{
+public class Mood implements Serializable {
     /**
      * 主键
      */
-    private String id;
+    private int id;
     /**
      * 说说内容
      */
@@ -29,11 +29,11 @@ public class Mood implements Serializable{
      */
     private Date publishTime;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

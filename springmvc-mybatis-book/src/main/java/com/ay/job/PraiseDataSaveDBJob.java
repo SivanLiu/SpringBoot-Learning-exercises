@@ -16,6 +16,7 @@ import java.util.Set;
 
 /**
  * 描述：定时器
+ *
  * @author Ay
  * @date 2018/1/6.
  */
@@ -26,7 +27,7 @@ public class PraiseDataSaveDBJob {
 
     //每5秒执行一次
     @Scheduled(cron = "*/60 * *  * * * ")
-    public void savePraiseDataToDB(){
+    public void savePraiseDataToDB() {
         System.out.println("run .....");
     }
 
@@ -37,34 +38,34 @@ public class PraiseDataSaveDBJob {
     private UserMoodPraiseRelService userMoodPraiseRelService;
     @Resource
     private MoodService moodService;
+
     //每10秒执行一次，真实项目当中，我们可以把定时器的执行计划时间设置长一点
     //比如说每天晚上凌晨2点跑一次。
     @Scheduled(cron = "*/10 * *  * * * ")
-    public void savePraiseDataToDB2(){
+    public void savePraiseDataToDB2() {
 
         //获取所有被点赞的说说id
-        Set<String> moods = redisTemplate.opsForSet().members(PRAISE_HASH_KEY);
-        if(CollectionUtils.isEmpty(moods)){
+        Set<Integer> moods = redisTemplate.opsForSet().members(PRAISE_HASH_KEY);
+        if (CollectionUtils.isEmpty(moods)) {
             return;
         }
-        for(String moodId: moods){
-            System.out.println("ggggggggggggggggggggggggg "+moodId);
-            if(redisTemplate.opsForSet().members(moodId) == null){
+        for (Integer moodId : moods) {
+            if (redisTemplate.opsForSet().members(moodId) == null) {
                 continue;
-            }else {
+            } else {
                 //通过说说id获取所有点赞的用户id列表
                 Set<String> userIds = redisTemplate.opsForSet().members(moodId);
-                if(CollectionUtils.isEmpty(userIds)){
+                if (CollectionUtils.isEmpty(userIds)) {
                     continue;
-                }else{
-                    for(String userId:userIds){
+                } else {
+                    for (String userId : userIds) {
                         UserMoodPraiseRel userMoodPraiseRel = new UserMoodPraiseRel();
-                        userMoodPraiseRel.setMoodId(moodId);
+                        userMoodPraiseRel.setMoodId(String.valueOf(moodId));
                         userMoodPraiseRel.setUserId(userId);
                         //保存说说与用户关联关系
                         userMoodPraiseRelService.save(userMoodPraiseRel);
                     }
-                    Mood mood = moodService.findById(moodId);
+                    Mood mood = moodService.findById(String.valueOf(moodId));
                     //更新说说点赞数量
                     //说说的总点赞数量 = redis 点赞数量 + 数据库的点赞数量
                     mood.setPraiseNum(mood.getPraiseNum() + redisTemplate.opsForSet().size(moodId).intValue());

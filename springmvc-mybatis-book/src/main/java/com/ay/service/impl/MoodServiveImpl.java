@@ -41,16 +41,16 @@ public class MoodServiveImpl implements MoodService {
     private static Destination destination = new ActiveMQQueue("ay.queue.high.concurrency.praise");
 
 
-    public boolean praiseMoodForRedis(String userId, String moodId) {
+    public boolean praiseMoodForRedis(String userId, int moodId) {
         MoodDTO moodDTO = new MoodDTO();
         moodDTO.setUserId(userId);
         moodDTO.setId(moodId);
-//        moodProducer.sendMessage(destination, moodDTO);
+        moodProducer.sendMessage(destination, moodDTO);
 
         //1.存放到hashset中
-        redisTemplate.opsForSet().add(PRAISE_HASH_KEY , moodId);
+//        redisTemplate.opsForSet().add(PRAISE_HASH_KEY , moodId);
         //2.存放到set中
-        redisTemplate.opsForSet().add(moodId,userId);
+//        redisTemplate.opsForSet().add(moodId,userId);
         return false;
     }
 

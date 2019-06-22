@@ -21,7 +21,7 @@ public interface MoodService {
 
     Mood findById(String id);
 
-    boolean praiseMoodForRedis(String userId, String moodId);
+    boolean praiseMoodForRedis(String userId, int moodId);
 
     List<MoodDTO> findAllForRedis();
 }
