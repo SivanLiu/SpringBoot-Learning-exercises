@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService = null;
 
-    @RequestMapping("/user/print")
+    @RequestMapping("/print")
     @ResponseBody
     public User printUser(Long id, String username, String note) {
         User user = new User();

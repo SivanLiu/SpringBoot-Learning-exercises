@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages = "com.spring.aop.aspect")
+@SpringBootApplication(scanBasePackages = "com.spring.aop")
 public class SpringAopApplication {
     @Bean(name = "myAspect")
     public MyAspect initMyAspect() {
