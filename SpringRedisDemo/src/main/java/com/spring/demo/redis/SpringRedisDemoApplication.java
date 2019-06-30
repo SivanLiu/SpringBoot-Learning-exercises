@@ -3,6 +3,7 @@ package com.spring.demo.redis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.MessageListener;
@@ -20,6 +21,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication(scanBasePackages = "com.spring.demo.redis")
+@EnableCaching
 public class SpringRedisDemoApplication {
 
     @Autowired

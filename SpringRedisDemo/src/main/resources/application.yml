@@ -1,4 +1,20 @@
 spring:
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # 数据库驱动
+    tomcat:
+      max-idle: 10
+      max-active: 50
+      max-wait: 10000
+      initial-size: 5
+      # 设置默认的隔离级别为读写提交
+      default-transaction-isolation: 2
+
+  # redis 配置
   redis:
     host: localhost
     port: 6379
@@ -10,3 +26,7 @@ spring:
         min-idle: 5
         max-idle: 10
         max-wait: 2000
+logging:
+  level:
+    root: debug
+
