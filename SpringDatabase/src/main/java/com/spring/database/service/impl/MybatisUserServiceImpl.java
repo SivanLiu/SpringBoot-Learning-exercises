@@ -16,4 +16,9 @@ public class MybatisUserServiceImpl implements MybatisUserService {
     public User getUser(Long id) {
         return mybatisUserDao.getUser(id);
     }
+
+    @Override
+    public void insertUser(User user) {
+        mybatisUserDao.insertUser(user);
+    }
 }

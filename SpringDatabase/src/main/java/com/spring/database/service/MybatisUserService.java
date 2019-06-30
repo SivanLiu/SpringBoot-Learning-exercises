@@ -5,4 +5,6 @@ import com.spring.database.pojo.User;
 public interface MybatisUserService {
 
     public User getUser(Long id);
+
+    public void insertUser(User user);
 }

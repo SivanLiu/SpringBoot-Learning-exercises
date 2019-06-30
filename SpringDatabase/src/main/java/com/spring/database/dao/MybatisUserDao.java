@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MybatisUserDao {
     public User getUser(Long id);
+
+    public void insertUser(User user);
 }
