@@ -1,5 +1,7 @@
 package com.spring.demo.redis;
 
+import org.apache.catalina.startup.ClassLoaderFactory;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,10 +19,12 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication(scanBasePackages = "com.spring.demo.redis")
+@MapperScan(basePackages = "com.spring.demo.redis", annotationClass = Repository.class)
 @EnableCaching
 public class SpringRedisDemoApplication {
 
