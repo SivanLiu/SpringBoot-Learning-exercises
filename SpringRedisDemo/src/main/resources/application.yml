@@ -30,6 +30,13 @@ spring:
   cache:
     type: REDIS
     cache-names: redisCache
+    redis:
+      # 禁用前缀
+      use-key-prefix: false
+      # 自定义前缀
+      cache-null-values: true
+      # 定义超时时间, 单位毫秒
+      time-to-live: 600000
 
 logging:
   level:

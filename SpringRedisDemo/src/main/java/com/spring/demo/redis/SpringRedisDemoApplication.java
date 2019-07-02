@@ -1,6 +1,5 @@
 package com.spring.demo.redis;
 
-import org.apache.catalina.startup.ClassLoaderFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +21,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @SpringBootApplication(scanBasePackages = "com.spring.demo.redis")
 @MapperScan(basePackages = "com.spring.demo.redis", annotationClass = Repository.class)
@@ -85,11 +85,11 @@ public class SpringRedisDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringRedisDemoApplication.class, args);
-//        ApplicationContext context = new AnnotationConfigApplicationContext(RedisConfig.class);
-//        RedisTemplate redisTemplate = context.getBean(RedisTemplate.class);
-//        redisTemplate.opsForValue().set("key1", "value1");
-//        redisTemplate.opsForHash().put("hash", "field", "havlue");
-//        redisTemplate.boundSetOps("set").add("sss", "xxx");
+        //        ApplicationContext context = new AnnotationConfigApplicationContext(RedisConfig.class);
+        //        RedisTemplate redisTemplate = context.getBean(RedisTemplate.class);
+        //        redisTemplate.opsForValue().set("key1", "value1");
+        //        redisTemplate.opsForHash().put("hash", "field", "havlue");
+        //        redisTemplate.boundSetOps("set").add("sss", "xxx");
     }
 
     //需要处理底层的转换规则，如果不考虑改写底层，尽量不要使用该接口
