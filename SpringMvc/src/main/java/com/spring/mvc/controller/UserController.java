@@ -5,6 +5,7 @@ import com.spring.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +25,7 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @RequestMapping("/details")
+    @RequestMapping(value = "details", method = RequestMethod.GET)
     public ModelAndView details(Long id) {
         User user = userService.getUser(id);
         //模型和视图
