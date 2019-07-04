@@ -5,10 +5,12 @@ import com.spring.mvc.pojo.User;
 import com.spring.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -61,6 +63,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findUsers(String userName, String note) {
+        System.out.println("gggg userName = " + userName + " note = " + note);
         return userDao.findUsers(userName, note);
     }
 
