@@ -10,6 +10,7 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
   resources:
+    # 静态资源指定位置
     static-locations: classpath:/static/
 logging:
   level:

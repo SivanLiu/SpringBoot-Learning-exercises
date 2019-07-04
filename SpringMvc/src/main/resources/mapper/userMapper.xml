@@ -6,15 +6,7 @@
         from t_user
         where id = #{id}
     </select>
-    <!--<select id="findUsers" resultType="user">-->
-        <!--select id, user_name as userName, note-->
-        <!--from t_user where user_name = #{userName} and note = #{id}-->
-        <!--&lt;!&ndash;<where>&ndash;&gt;-->
-            <!--&lt;!&ndash;<if test="userName != null"> and user_name like concat('%', #{userName}, '%')</if>&ndash;&gt;-->
-            <!--&lt;!&ndash;<if test="note != null"> and note like concat('%', #{note}, '%')</if>&ndash;&gt;-->
-        <!--&lt;!&ndash;</where>&ndash;&gt;-->
-    <!--</select>-->
-
+    <!-- arg0 才行, userName 会报错-->
     <select id="findUsers" resultType="user">
         select id, user_name as userName, note from t_user
         <where>
