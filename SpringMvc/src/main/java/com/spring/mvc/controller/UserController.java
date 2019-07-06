@@ -4,10 +4,7 @@ import com.spring.mvc.pojo.User;
 import com.spring.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
@@ -105,6 +102,36 @@ public class UserController {
                            @RequestParam(value = "note", required = false) String note) {
         List<User> userList = userService.findUsers(userName, note);
         return userList;
+    }
+
+    /**
+     * 打开请求页面
+     *
+     * @return 字符串，指向页面
+     */
+    @GetMapping("/add")
+    public String add() {
+        return "/user/add";
+    }
+
+    /**
+     * 新增用户
+     *
+     * @param user 通过 @RequestBody 注解得到 JSON 参数
+     * @return 回填 id 后的用户信息
+     */
+    @PostMapping("/insert")
+    @ResponseBody
+    public User insert(@RequestBody User user) {
+        userService.insertUser(user);
+        return user;
+    }
+
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public User get(@PathVariable("id") Long id) {
+        return userService.getUser(id);
     }
 
     private Map<String, Object> resultMap(boolean success, String message) {
