@@ -1,16 +1,18 @@
 package com.spring.mvc.controller;
 
 import com.spring.mvc.pojo.User;
+import com.spring.mvc.pojo.ValidaterPojo;
 import com.spring.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,6 +107,44 @@ public class UserController {
                            @RequestParam(value = "note", required = false) String note) {
         List<User> userList = userService.findUsers(userName, note);
         return userList;
+    }
+
+
+    @GetMapping("valid/page")
+    public String validatePage() {
+        return "user/pojo";
+    }
+
+    /**
+     * 解析验证参数错误
+     *
+     * @param validaterPojo 需要验证的 POJO, 使用注解 @Valid 表示验证
+     * @param errors        错误信息，它由 Spring MVC 通过验证 POJO 后自动填充
+     * @return 错误信息
+     */
+    @RequestMapping(value = "/valid/validate")
+    @ResponseBody
+    public Map<String, Object> validate(@Valid @RequestBody ValidaterPojo validaterPojo, Errors errors) {
+        Map<String, Object> errMap = new HashMap<>();
+        //获取错误列表
+        List<ObjectError> oes = errors.getAllErrors();
+        for (ObjectError objectError : oes) {
+            String key;
+            String msg;
+            //字段错误
+            if (objectError instanceof FieldError) {
+                FieldError fieldError = (FieldError) objectError;
+                key = fieldError.getField();
+            } else {
+                //非字段错误
+                key = objectError.getObjectName();
+            }
+            //错误信息
+            msg = objectError.getDefaultMessage();
+            System.out.println("gggg " + msg);
+            errMap.put(key, msg);
+        }
+        return errMap;
     }
 
     private Map<String, Object> resultMap(boolean success, String message) {
