@@ -63,7 +63,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findUsers(String userName, String note) {
-        System.out.println("gggg userName = " + userName + " note = " + note);
         return userDao.findUsers(userName, note);
     }
 

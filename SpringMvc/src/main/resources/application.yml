@@ -13,6 +13,15 @@ spring:
   resources:
     # 静态资源指定位置
     static-locations: classpath:/static/
+
+  # 文件上传配置
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+      resolve-lazily: false
+      location: D:/springboot_file_upload
 logging:
   level:
     root: debug

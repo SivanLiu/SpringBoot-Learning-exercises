@@ -27,6 +27,8 @@ dependencies {
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'javax.servlet:jstl:1.2'
+    implementation 'org.xhtmlrenderer:core-renderer:R8'
+    implementation 'com.itextpdf:itextpdf:5.5.12'
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
