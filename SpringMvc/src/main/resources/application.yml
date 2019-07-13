@@ -22,6 +22,12 @@ spring:
       max-request-size: 100MB
       resolve-lazily: false
       location: D:/springboot_file_upload
+
+  # 国际化资源
+  messages:
+    encoding: UTF-8
+    basename: international
+    cache-duration: 3600
 logging:
   level:
     root: debug
