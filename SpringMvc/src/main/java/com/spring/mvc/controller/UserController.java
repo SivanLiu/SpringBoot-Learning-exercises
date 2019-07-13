@@ -4,15 +4,25 @@ import com.spring.mvc.pojo.User;
 import com.spring.mvc.pojo.ValidaterPojo;
 import com.spring.mvc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,14 +88,14 @@ public class UserController {
         return modelAndView;
     }
 
-//    @RequestMapping("/table")
-//    public ModelAndView table() {
-//        List<User> userList = userService.findUsers(null, null);
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("user/table");
-//        modelAndView.addObject("userList", userList);
-//        return modelAndView;
-//    }
+    //    @RequestMapping("/table")
+    //    public ModelAndView table() {
+    //        List<User> userList = userService.findUsers(null, null);
+    //        ModelAndView modelAndView = new ModelAndView();
+    //        modelAndView.setViewName("user/table");
+    //        modelAndView.addObject("userList", userList);
+    //        return modelAndView;
+    //    }
 
     @RequestMapping("/table")
     public ModelAndView table() {
@@ -108,7 +118,6 @@ public class UserController {
         List<User> userList = userService.findUsers(userName, note);
         return userList;
     }
-
 
     @GetMapping("valid/page")
     public String validatePage() {
@@ -147,8 +156,7 @@ public class UserController {
         return errMap;
     }
 
-
-/**
+    /**
      * 打开请求页面
      *
      * @return 字符串，指向页面
@@ -171,11 +179,40 @@ public class UserController {
         return user;
     }
 
-
     @GetMapping("/{id}")
     @ResponseBody
     public User get(@PathVariable("id") Long id) {
         return userService.getUser(id);
+    }
+
+    @GetMapping("/format/form")
+    public String showFormat() {
+        return "user/formatter";
+    }
+
+    @PostMapping("/format/commit")
+    @ResponseBody
+    public Map<String, Object> format(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date date,
+                                      @NumberFormat(pattern = "#,###.##") Double number) {
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("date", date);
+        dataMap.put("number", number);
+        return dataMap;
+    }
+
+    @GetMapping("/converter")
+    @ResponseBody
+    public User getUserByConverter(User user) {
+        return user;
+    }
+
+    //StringToCollectionConverter 自动调用 StringToUserConverter 进行列表转换
+    //http://localhost:8080/user/convert_list?userList=1-user_name_1-user_note_555,2-user_name_2-user_note_666,
+    // 3-user_name_3-user_note_777
+    @GetMapping("/convert_list")
+    @ResponseBody
+    public List<User> list(List<User> userList) {
+        return userList;
     }
 
     private Map<String, Object> resultMap(boolean success, String message) {
