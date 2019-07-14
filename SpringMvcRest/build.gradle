@@ -17,6 +17,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
     //jsp 
     implementation 'javax.servlet:jstl:1.2'
     //jsp
