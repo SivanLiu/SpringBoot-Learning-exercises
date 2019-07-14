@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+  security:
+    user:
+      name: myuser
+      password: 123456
+    filter:
+      dispatcher-types: async,error,request
