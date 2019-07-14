@@ -69,6 +69,56 @@
             });
         }
 
+        function postStatus() {
+            //请求体
+            var params = {
+                'userName': 'user_name_new',
+                'sexCode': 1,
+                'note': 'note_new'
+            }
+
+            var url = "./user2/entity";
+            //var url = "./user2/annotation";
+            $.post({
+                url: url,
+                contentType: "application/json",
+                data: JSON.stringify(params),
+                success: function (result, status, jqXHR) {
+                    var success = jqXHR.getResponseHeader("success");
+                    var status = jqXHR.status;
+                    alert("响应头参数是：" + success + ", 状态码是：" + status);
+                    if (result == null || result.id == null) {
+                        alert("插入失败");
+                        return;
+                    }
+                    alert("插入成功")
+                }
+            })
+        }
+
+        function postExp() {
+            var url = "./user2/exp/5333";
+            //var url = "./user2/annotation";
+            $.ajax({
+                url: url,
+                type: 'GET'
+            })
+        }
+
+        function deleteUser() {
+            $.ajax({
+                url: "./user/4",
+                type: 'DELETE',
+                success: function (result) {
+                    if (result == null) {
+                        alert("结果为空");
+                    } else {
+                        alert(result.success ? "删除成功" : "删除失败");
+                    }
+                }
+            });
+        }
+
         function get() {
             $.get("./user/1", function (user, status) {
                 if (user == null) {
@@ -81,7 +131,10 @@
 
         // post();
         // updateUser();
-        changeUserName();
+        // changeUserName();
+        // deleteUser();
+        // postStatus();
+        postExp();
         // get();
     </script>
 </head>

@@ -5,7 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.spring.mvc.rest")
+@SpringBootApplication(scanBasePackages = { "com.spring.mvc.rest"})
 @MapperScan(basePackages = "com.spring.mvc.rest", annotationClass = Mapper.class)
 public class SpringMvcRestApplication {
 
