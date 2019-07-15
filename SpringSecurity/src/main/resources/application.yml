@@ -1,4 +1,10 @@
 spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
   mvc:
     view:
       prefix: /WEB-INF/jsp/
@@ -10,3 +16,23 @@ spring:
       password: 123456
     filter:
       dispatcher-types: async,error,request
+
+  redis:
+    host: localhost
+    port: 6379
+
+  cache:
+    type: REDIS
+    cache-names: redisCache
+    redis:
+      use-key-prefix: false
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.spring.security.pojo
+
+
+system:
+  user:
+    password:
+      secret: uvwxyz
