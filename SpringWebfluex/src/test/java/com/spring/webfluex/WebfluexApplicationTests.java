@@ -1,4 +1,4 @@
-package com.spring.webflux;
+package com.spring.webfluex;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class WebfluxApplicationTests {
+public class WebfluexApplicationTests {
 
     @Test
     public void contextLoads() {
