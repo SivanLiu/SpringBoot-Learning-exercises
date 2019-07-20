@@ -17,8 +17,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    compile 'org.springframework.boot:spring-boot-starter-webflux:2.1.6.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:2.1.6.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.1.6.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.1.6.RELEASE'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

@@ -8,6 +8,9 @@ public enum SexEnum {
     private int code;
 
     private String name;
+    SexEnum(){
+
+    }
 
     SexEnum(int code, String name) {
         this.code = code;

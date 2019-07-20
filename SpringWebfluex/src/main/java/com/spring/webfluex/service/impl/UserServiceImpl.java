@@ -4,9 +4,11 @@ import com.spring.webfluex.pojo.User;
 import com.spring.webfluex.repository.UserRepository;
 import com.spring.webfluex.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -19,6 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<User> insertUser(User user) {
+        System.out.println("gggggggggggggggggggggg insert user = "+user.toString());
         return userRepository.save(user);
     }
 
