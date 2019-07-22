@@ -6,8 +6,10 @@ import com.spring.bug.goods.pojo.ProductPo;
 import com.spring.bug.goods.pojo.PurchaseRecordPo;
 import com.spring.bug.goods.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class PurchaseServiceImpl implements PurchaseService {
     @Autowired
     private ProductDao productDao = null;
