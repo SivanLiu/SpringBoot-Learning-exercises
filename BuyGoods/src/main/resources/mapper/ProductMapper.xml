@@ -4,13 +4,13 @@
     <!--获取产品-->
     <select id="getProduct" parameterType="long" resultType="product">
         select id, product_name as productName, stock, price, version, note
-        from t_product
-        where id = #{id}
+        from T_Product
+        where id = #{id} for update
     </select>
 
     <!--减库存-->
     <update id="decreaseProduct">
-        update t_prodcut
+        update T_Product
         set stock = stock - #{quantity}
         where id = #{id}
     </update>
