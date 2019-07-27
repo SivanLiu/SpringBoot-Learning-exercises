@@ -1,0 +1,17 @@
+# Spring 项目名称
+spring:
+  application:
+    name: server
+# 服务端口
+server:
+  port: 7001
+# Eureka 注册服务器名称
+eureka:
+  instance:
+    hostname: localhost
+  # 是否注册给服务中心
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  # 是否检索服务
