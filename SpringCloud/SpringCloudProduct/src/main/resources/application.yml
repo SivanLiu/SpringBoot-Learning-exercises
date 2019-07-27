@@ -1,0 +1,10 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: product
+# 治理客户端服务域
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
