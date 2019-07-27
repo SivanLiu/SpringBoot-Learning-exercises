@@ -4,6 +4,6 @@ import com.spring.bug.goods.pojo.PurchaseRecordPo;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface PurchaseReocrdDao {
-    public int insertPurchaseRecord(PurchaseRecordPo purchaseRecordPo);
+public interface PurchaseRecordDao {
+    public int insertPurchaseRecord(PurchaseRecordPo pr);
 }

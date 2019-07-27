@@ -16,6 +16,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.springframework.boot:spring-boot-starter-data-redis') {
+        exclude module: 'io.lettuce', group: 'lettuce-core'
+    }
+    implementation 'redis.clients:jedis'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
     //jsp 
     implementation 'javax.servlet:jstl:1.2'

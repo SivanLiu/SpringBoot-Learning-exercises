@@ -10,8 +10,8 @@
 
     <!--减库存-->
     <update id="decreaseProduct">
-        update T_Product
-        set stock = stock - #{quantity}
+        update T_Product set stock = stock - #{quantity},
+                             version = version +1
         where id = #{id}
     </update>
 </mapper>

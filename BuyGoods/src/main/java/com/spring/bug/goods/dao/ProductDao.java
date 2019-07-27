@@ -10,5 +10,8 @@ public interface ProductDao {
     public ProductPo getProduct(Long id);
 
     //减库存，而 @Param 表明 mybatis 参数传递给后台
+//    public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity, @Param("version") int version);
+
+    //减库存，而@Param标明MyBatis参数传递给后台
     public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity);
 }
