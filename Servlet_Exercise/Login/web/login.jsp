@@ -26,14 +26,14 @@
             var vcode = document.getElementById("vcode");
 
             //2.设置其src属性，加时间戳
-            vcode.src = "${pageContext.request.contextPath}/CheckCodeServlet?time=" + new Date().getTime();
+            vcode.src = "${pageContext.request.contextPath}/checkCodeServlet?time=" + new Date().getTime();
         }
     </script>
 </head>
 <body>
 <div class="container" style="width: 400px;">
     <h3 style="text-align: center;">管理员登录</h3>
-    <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
+    <form action="${pageContext.request.contextPath}/loginServlet" method="post">
         <div class="form-group">
             <label for="user">用户名：</label>
             <input type="text" name="username" class="form-control" id="user" placeholder="请输入用户名"/>
@@ -49,7 +49,7 @@
             <input type="text" name="verifycode" class="form-control" id="verifycode" placeholder="请输入验证码"
                    style="width: 120px;"/>
             <a href="javascript:refreshCode();">
-                <img src="${pageContext.request.contextPath}/CheckCodeServlet" title="看不清点击刷新" id="vcode"/>
+                <img src="${pageContext.request.contextPath}/checkCodeServlet" title="看不清点击刷新" id="vcode"/>
             </a>
         </div>
         <hr/>

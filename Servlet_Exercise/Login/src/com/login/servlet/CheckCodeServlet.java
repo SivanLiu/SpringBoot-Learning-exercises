@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-@WebServlet("/CheckCodeServlet")
+@WebServlet("/checkCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 

@@ -23,3 +23,14 @@ INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `us
 VALUES ('4', '小红', '女', '23', '深圳', '275837237', '275837237@qq.com', 'xiaohong', '123');
 INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `username`, `password`)
 VALUES ('4', '小琴', '女', '12', '广州', '175837237', '175837237@qq.com', 'xiaoqin', '123');
+
+INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `username`, `password`)
+VALUES ('5', '张三', '男', '23', '北京', '458888325', '8955802544@qq.com', 'zhangsan', '123');
+INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `username`, `password`)
+VALUES ('6', '李四', '男', '33', '广州', '458888225', '8955852544@qq.com', 'lisi', '123');
+INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `username`, `password`)
+VALUES ('7', '王五', '男', '43', '上海', '475837237', '475837237@qq.com', 'wangwu', '123');
+INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `username`, `password`)
+VALUES ('8', '小红', '女', '23', '深圳', '275837237', '275837237@qq.com', 'xiaohong', '123');
+INSERT INTO `user` (`id`, `name`, `gender`, `age`, `adderss`, `qq`, `email`, `username`, `password`)
+VALUES ('9', '小琴', '女', '12', '广州', '175837237', '175837237@qq.com', 'xiaoqin', '123');
