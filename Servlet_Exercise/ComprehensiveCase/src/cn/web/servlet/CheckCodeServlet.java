@@ -1,4 +1,4 @@
-package com.login.servlet;
+package cn.web.servlet;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -11,9 +11,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-/**
- * 验证码
- */
 @WebServlet("/checkCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -78,4 +75,3 @@ public class CheckCodeServlet extends HttpServlet {
         this.doGet(request,response);
     }
 }
-
