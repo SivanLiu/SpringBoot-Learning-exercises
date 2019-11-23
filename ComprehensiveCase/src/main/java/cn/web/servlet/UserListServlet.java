@@ -15,9 +15,11 @@ import java.util.List;
 @WebServlet("/userListServlet")
 public class UserListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         //1.调用UserService完成查询
         UserService service = new UserServiceImpl();
         List<User> users = service.findAll();
+        System.out.println("gggg size = "+users.size());
         //2.将list存入request域
         request.setAttribute("users",users);
         //3.转发到list.jsp
