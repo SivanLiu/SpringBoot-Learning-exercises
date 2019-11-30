@@ -19,7 +19,6 @@ public class UserListServlet extends HttpServlet {
         //1.调用UserService完成查询
         UserService service = new UserServiceImpl();
         List<User> users = service.findAll();
-        System.out.println("gggg size = "+users.size());
         //2.将list存入request域
         request.setAttribute("users",users);
         //3.转发到list.jsp

@@ -7,7 +7,6 @@
 <head>
     <!-- 指定字符集 -->
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- 使用Edge最新的浏览器的渲染方式 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- viewport视口：网页可以根据设置的宽度自动进行适配，在浏览器的内部虚拟一个容器，容器的宽度与设备的宽度相同。
@@ -64,9 +63,9 @@
         </div>
 
         <div class="form-group" style="text-align: center">
-            <input class="btn btn-primary" type="submit" value="提交" />
-            <input class="btn btn-default" type="reset" value="重置" />
-            <input class="btn btn-default" type="button" value="返回" />
+            <input class="btn btn-primary" type="submit" value="提交"/>
+            <input class="btn btn-default" type="reset" value="重置"/>
+            <input class="btn btn-default" type="button" value="返回"/>
         </div>
     </form>
 </div>

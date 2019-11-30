@@ -15,12 +15,13 @@ build/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
+/.idea
+/*.iws
+/*.iml
 *.ipr
 out/
-
+/target/
+/src/main/resources/druid.properties
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
